@@ -1,0 +1,199 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.zero-editor-wrapper{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f4f4f5;
+  border-radius: 8px;
+  background: #fff;
+}
+.ProseMirror {
+  outline: 0;
+}
+.zero-editor-container{
+  padding: 30px 20px;
+  background: white;
+}
+.zero-editor-container p {
+  margin-bottom: 10px;
+}
+/* menu */
+.zero-editor-menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f4f4f5;
+  align-items: center;
+  background: white;
+}
+
+.editor-menu-item{
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 6px;
+  padding: 4px;
+  font-size: 12px;
+  transition: .3s;
+}
+.editor-menu-item .svg-icon{
+  display: block;
+  width: 1rem;
+}
+.editor-menu-item.selected{
+  border-radius: 50%;
+  background: #ececff;
+}
+.editor-menu-tab{
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  z-index: 2;
+  width: auto;
+  white-space: nowrap;
+  transform: translate(-50%, 0);
+  background: white;
+  border: 1px solid #E8E9E8;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 12%);
+}
+
+
+.editor-menu-tab .editor-menu-tab-item{
+  position: relative;
+  padding: 4px 15px 4px 25px;
+  line-height: 30px;
+}
+
+
+.editor-menu-tab-color .editor-menu-tab-item{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 2px;
+  border-radius: 2px;
+  border: 1px solid #f4f4f5;
+}
+
+.editor-menu-tab .editor-menu-tab-item.actived::after{
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: url(src/assets/images/check-line.svg) no-repeat;
+  background-size: 100%;
+  transform: translate(0%, -50%);
+    
+}
+
+.editor-menu-tab-color .editor-menu-tab-item:hover{
+  border: 1px solid #000;
+}
+
+.editor-menu-tab .editor-menu-tab-item:hover{
+  background-color: #f4f4f5;
+}
+
+.editor-menu-item:hover{
+  background-color: #f4f4f5;
+}
+
+.editor-menu-item.display-tab .editor-menu-tab{
+  display: block;
+}
+.editor-menu-item.display-tab .editor-menu-tab-color{
+  display: flex;
+  flex-wrap: wrap;
+  width: 240px;
+}
+
+/* tooltip */
+.editor-menu-tool-tip{
+  opacity: 0;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  word-break: keep-all;
+  transform: translate(-50%, 0px);
+  transition: 0.3s;
+}
+.editor-menu-tool-tip:after{
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  content: '';
+  border: 5px solid rgba(0,0,0,0.8);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  transform: translate(-50%, 0px);
+  
+}
+.editor-menu-item:hover .editor-menu-tool-tip{
+  opacity: 1;
+}
+
+
+
+.btn{
+  position: relative;
+}
+.btn-children {
+  position: absolute;
+  right: 50px;
+  /* top: 0; */
+  z-index: 999;
+  background-color: aquamarine;
+}
+
+.ProseMirror blockquote{
+  padding-left: 10px;
+  margin: 10px 0;
+  border-left: 2px solid #D8DAD9;
+  color: #8b8b8b;
+}
+.ProseMirror pre{
+  padding: 0 4px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background: #EFF0F0;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace, Roboto, RobotoNum, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Segoe UI';
+}
+.ProseMirror code{
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace, Roboto, RobotoNum, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Segoe UI';
+}
+
+.ProseMirror ol, .ProseMirror ul{
+  margin-left: 16px;
+}
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+ul[data-type="taskList"] p {
+  margin: 0;
+}
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: center;
+}
+ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
