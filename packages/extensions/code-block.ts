@@ -1,8 +1,8 @@
-import{ CodeBlock as TiptapCodeBlock }from '@tiptap/extension-code-block'
+import { CodeBlock as TiptapCodeBlock } from '@tiptap/extension-code-block'
 import { CoustomOptions, MenuOptions } from '../types'
 
 export default class CodeBlock {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     showMenu = true,
     toolTips = '代码块'
@@ -10,15 +10,15 @@ export default class CodeBlock {
     const ZeroCodeBlock: Record<string, any> = TiptapCodeBlock.extend()
 
     const menusOptions: MenuOptions = {
-      showMenu: showMenu,
-      toolTips: toolTips,
+      showMenu,
+      toolTips,
       dataNeType: 'codeBlock',
       src: 'src/assets/images/code-s-slash-line.svg',
-      toggleCommand: function () {
-        this.editor.commands.toggleCodeBlock();
+      toggleCommand() {
+        this.editor.commands.toggleCodeBlock()
       }
     }
-    ZeroCodeBlock.menusOptions = menusOptions;
+    ZeroCodeBlock.menusOptions = menusOptions
     this.extension = ZeroCodeBlock
   }
 }

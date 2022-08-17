@@ -1,6 +1,6 @@
-import { CoustomOptions, MenuOptions, HTMLElementEvent } from '../types'
-import{ TextAlign as TiptapTextAlign }from '@tiptap/extension-text-align'
-import { HTML_TYPE, MENU_ATTR_NAME } from '../constant';
+import { MenuOptions, HTMLElementEvent } from '../types'
+import { TextAlign as TiptapTextAlign } from '@tiptap/extension-text-align'
+import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
 
 interface TextAlignOptions extends MenuOptions {
   types?: string[],
@@ -16,7 +16,7 @@ const alignmentsMap = new Map([
 ])
 
 export default class TextAlign {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     types = ['heading', 'paragraph'],
     alignments = ['left', 'center', 'right', 'justify'],
@@ -41,9 +41,7 @@ export default class TextAlign {
       dataNeType: 'textAlign',
       activeIsObject: true,
       setActiveRules: (textAlign: string) => {
-        return [
-          { textAlign }
-        ]
+        return [{ textAlign }]
       },
       htmlOption: {
         type: HTML_TYPE.HTML,
@@ -56,14 +54,14 @@ export default class TextAlign {
         })
       },
       src: 'src/assets/images/align-left.svg',
-      toggleCommand: function (pointerEvent: HTMLElementEvent<HTMLElement>) {
-        const element: Element = pointerEvent.target;
+      toggleCommand(pointerEvent: HTMLElementEvent<HTMLElement>) {
+        const element: Element = pointerEvent.target
         const align: string | null = element.getAttribute(MENU_ATTR_NAME)
-        this.editor.commands.setTextAlign(align);
+        this.editor.commands.setTextAlign(align)
       }
     }
 
-    ZeroTextAlign.menusOptions = menusOptions;
-    this.extension = ZeroTextAlign;
+    ZeroTextAlign.menusOptions = menusOptions
+    this.extension = ZeroTextAlign
   }
 }

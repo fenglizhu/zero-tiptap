@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-types */
 export interface CoustomOptions {
   showMenu?: boolean,
   toolTips?: string
@@ -16,7 +18,7 @@ export interface MenuOptions {
   menuType?: string,
   activeIsObject?: boolean,
   src?: string,
-  htmlOption?: Record<string, any>,
+  htmlOption?: object,
   setActiveRules?: Function
 }
 

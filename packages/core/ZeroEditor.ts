@@ -1,12 +1,12 @@
 import { Editor } from '@tiptap/core'
 import { EditorOptions } from '@tiptap/core'
-import MenusBar from "../menu/menus-bar";
-import { createElement } from '../utils/dom';
+import MenusBar from '../menu/menus-bar'
+import { createElement } from '../utils/dom'
 
 export type EditorType = Editor | any
 
 export class ZeroEditor {
-  menusBar!: MenusBar;
+  menusBar!: MenusBar
   editor: EditorType
   public options: Partial<EditorOptions> = {
     element: undefined,
@@ -30,33 +30,33 @@ export class ZeroEditor {
     onBlur: () => null,
     onDestroy: () => null,
   }
-  menuElementOption!: { id: string; class: string; };
-  containerElementOption!: { class: string; };
-  elementParentOption!: { class: string; };
-  menuElement!: Element;
-  selectionTimer: ReturnType<typeof setTimeout> | null;
+  menuElementOption!: { id: string; class: string; }
+  containerElementOption!: { class: string; }
+  elementParentOption!: { class: string; }
+  menuElement!: Element
+  selectionTimer: ReturnType<typeof setTimeout> | null
 
   constructor(options: Partial<EditorOptions> = {}) {
-    this.selectionTimer = null;
-    this.setOptions(options);
-    this.setElementOption();
+    this.selectionTimer = null
+    this.setOptions(options)
+    this.setElementOption()
 
-    const editor= new Editor({
+    const editor = new Editor({
       ...this.options as any,
       onSelectionUpdate: () => {
-        if(this.selectionTimer) {
+        if (this.selectionTimer) {
           clearTimeout(this.selectionTimer)
         }
         this.selectionTimer = setTimeout(() => {
-          this.menusBar.setActiveMenus(this);
-        }, 500);
+          this.menusBar.setActiveMenus(this)
+        }, 500)
       }
-    });
-    this.editor = editor;
-    this.editor.menusOptions = this.menus;
-    this.createMenuManager();
-    this.renderContainerDom();
-    this.renderMenusDom();
+    })
+    this.editor = editor
+    this.editor.menusOptions = this.menus
+    this.createMenuManager()
+    this.renderContainerDom()
+    this.renderMenusDom()
   }
   /**
    * 设置元素的参数
@@ -83,7 +83,7 @@ export class ZeroEditor {
     this.options = {
       ...this.options,
       ...options,
-      extensions: extensions.map((item: Record<string,any>) => item.extension)
+      extensions: extensions.map((item: Record<string, any>) => item.extension)
     }
   }
 
@@ -91,13 +91,13 @@ export class ZeroEditor {
    * 创建菜单管理，为其配置方法等
    */
   private createMenuManager() {
-    this.editor.menusOptions.forEach((menusItem: Record<string,any>) => {
-      if(menusItem.menusOptions.toggleCommand) {
+    this.editor.menusOptions.forEach((menusItem: Record<string, any>) => {
+      if (menusItem.menusOptions.toggleCommand) {
         menusItem.menusOptions.toggleCommand = menusItem.menusOptions.toggleCommand.bind({
           editor: this.editor
         })
       }
-    });
+    })
   }
 
   /**
@@ -112,17 +112,17 @@ export class ZeroEditor {
    * zero-editor-menu
    */
   renderContainerDom() {
-    if(this.options.element) {
-      this.options.element.classList.add(this.containerElementOption.class);
+    if (this.options.element) {
+      this.options.element.classList.add(this.containerElementOption.class)
 
-      const patentEle = this.createEditorParentElement();
+      const patentEle = this.createEditorParentElement()
       
-      this.menuElement = this.createMenuEle();
+      this.menuElement = this.createMenuEle()
 
       patentEle.append(this.menuElement, this.options.element)
 
     } else {
-      throw new Error("Editor container must be set an element");
+      throw new Error('Editor container must be set an element')
     }
   }
 
@@ -144,9 +144,9 @@ export class ZeroEditor {
    * 
    */
   public createMenuEle() {
-    const menuEle: HTMLElement = createElement('div');
-    menuEle.id = this.menuElementOption.id;
-    menuEle.className = this.menuElementOption.class;
+    const menuEle: HTMLElement = createElement('div')
+    menuEle.id = this.menuElementOption.id
+    menuEle.className = this.menuElementOption.class
     return menuEle
   }
 

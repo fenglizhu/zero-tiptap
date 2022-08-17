@@ -1,7 +1,7 @@
 import { Extension } from '@tiptap/core'
 // import { NodeType, MarkType } from 'prosemirror-model'
 import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
-import { CoustomOptions, MenuOptions, HTMLElementEvent } from '../types'
+import { MenuOptions, HTMLElementEvent } from '../types'
 
 interface TextAlignOptions extends MenuOptions {
   types?: string[],
@@ -15,6 +15,7 @@ declare module '@tiptap/core' {
       /**
        * Set the text align attribute
        */
+       // eslint-disable-next-line no-unused-vars
        setLineHeight: (alignment: string) => ReturnType,
       /**
        * Unset the text align attribute
@@ -71,7 +72,7 @@ const LineHeightExtension = Extension.create({
 })
 
 export default class LineHeight {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     types = ['heading', 'paragraph'],
     alignments = [1, 1.15, 1.5, 2.0, 2.5, 3],
@@ -97,9 +98,7 @@ export default class LineHeight {
       activeIsObject: true,
       src: 'src/assets/images/line-height.svg',
       setActiveRules: (lineHeight: string) => {
-        return [
-          { lineHeight }
-        ]
+        return [{ lineHeight }]
       },
       htmlOption: {
         type: HTML_TYPE.HTML,
@@ -111,14 +110,14 @@ export default class LineHeight {
           }
         })
       },
-      toggleCommand: function (pointerEvent: HTMLElementEvent<HTMLElement>) {
-        const element:Element = pointerEvent.target;
+      toggleCommand(pointerEvent: HTMLElementEvent<HTMLElement>) {
+        const element:Element = pointerEvent.target
         const attr: string | null = element.getAttribute(MENU_ATTR_NAME)
-        const lineHeight: number = Number(attr);
-        this.editor.commands.setLineHeight(lineHeight);
+        const lineHeight = Number(attr)
+        this.editor.commands.setLineHeight(lineHeight)
       }
     }
-    ZeroLineHeight.menusOptions = menusOptions;
-    this.extension = ZeroLineHeight;
+    ZeroLineHeight.menusOptions = menusOptions
+    this.extension = ZeroLineHeight
   }
 }

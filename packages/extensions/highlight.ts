@@ -1,16 +1,16 @@
 
 import { mergeAttributes } from '@tiptap/core'
-import { Highlight as TiptapHighlight } from "@tiptap/extension-highlight";
-import { HTML_TYPE, MENU_ATTR_NAME, STYLE_NAME, TAB_COLOR_CLASS_NAME } from '../constant';
+import { Highlight as TiptapHighlight } from '@tiptap/extension-highlight'
+import { HTML_TYPE, MENU_ATTR_NAME, STYLE_NAME, TAB_COLOR_CLASS_NAME } from '../constant'
 import { CoustomOptions, MenuOptions, HTMLElementEvent } from '../types'
-import { Colors } from "../types/color";
+import { Colors } from '../types/color'
 
 interface ColorOptions extends CoustomOptions {
   colors?: string[]
 }
 
 export default class Highlight {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     colors = Colors,
     showMenu = true,
@@ -29,8 +29,8 @@ export default class Highlight {
     })
 
     const menusOptions: MenuOptions = {
-      showMenu: showMenu,
-      toolTips: toolTips,
+      showMenu,
+      toolTips,
       hasTab: true,
       dropdown: colors,
       dataNeType: 'highlight',
@@ -50,13 +50,13 @@ export default class Highlight {
         tagAndText: colors,
         tabClassName: TAB_COLOR_CLASS_NAME
       },
-      toggleCommand: function (pointerEvent: HTMLElementEvent<HTMLElement>) {
-        const element:Element = pointerEvent.target;
+      toggleCommand(pointerEvent: HTMLElementEvent<HTMLElement>) {
+        const element:Element = pointerEvent.target
         const color = element.getAttribute(MENU_ATTR_NAME)
-        this.editor.commands.toggleHighlight({ color });
+        this.editor.commands.toggleHighlight({ color })
       }
     }
-    ZeroHighlight.menusOptions = menusOptions;
-    this.extension = ZeroHighlight;
+    ZeroHighlight.menusOptions = menusOptions
+    this.extension = ZeroHighlight
   }
 }

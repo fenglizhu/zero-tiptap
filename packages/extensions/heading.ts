@@ -1,4 +1,4 @@
-import{ Heading as TiptapHeading }from '@tiptap/extension-heading'
+import { Heading as TiptapHeading } from '@tiptap/extension-heading'
 import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
 import { CoustomOptions, MenuOptions, HTMLElementEvent } from '../types'
 
@@ -17,8 +17,8 @@ export default class Heading {
     const ZeroHeading: Record<string, any> = TiptapHeading.extend()
     
     const menusOptions: MenuOptions = {
-      showMenu: showMenu,
-      toolTips: toolTips,
+      showMenu,
+      toolTips,
       hasTab: true,
       dropdown: levels,
       dataNeType: 'heading',
@@ -34,7 +34,7 @@ export default class Heading {
       },
       htmlOption: {
         type: HTML_TYPE.HTML,
-        tagAndText: levels.map((item: number)=> {
+        tagAndText: levels.map((item: number) => {
           const tag = `h${item}`
           return {
             tag,
@@ -43,14 +43,14 @@ export default class Heading {
           }
         })
       },
-      toggleCommand: function (pointerEvent: HTMLElementEvent<HTMLElement>) {
-        const element: Element = pointerEvent.target;
+      toggleCommand(pointerEvent: HTMLElementEvent<HTMLElement>) {
+        const element: Element = pointerEvent.target
         const attr: string | null = element.getAttribute(MENU_ATTR_NAME)
-        const level: number = Number(attr);
-        this.editor.commands.toggleHeading({ level });
+        const level = Number(attr)
+        this.editor.commands.toggleHeading({ level })
       }
     }
-    ZeroHeading.menusOptions = menusOptions;
-    this.extension = ZeroHeading;
+    ZeroHeading.menusOptions = menusOptions
+    this.extension = ZeroHeading
   }
 }

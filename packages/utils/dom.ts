@@ -3,19 +3,19 @@ export const querySelector = (options: string, parentElement: Document | HTMLEle
 }
 
 export const removeClass = (element: HTMLElement | Element, className: string) => {
-  element && element.classList.remove(className);
+  element && element.classList.remove(className)
 }
 
 export const addClass = (element: HTMLElement | Element, className: string) => {
-  element && element.classList.add(className);
+  element && element.classList.add(className)
 }
 
 export const createElement = (tag: string): HTMLElement => {
-  return document.createElement(tag);
+  return document.createElement(tag)
 }
 
 export const setClassName = (element: HTMLElement | Element, className: string) => {
-  element.className = className;
+  element.className = className
 }
 
 export const setStyleProperty = (element: HTMLElement, propertyName:string, value: string) => {
@@ -23,6 +23,6 @@ export const setStyleProperty = (element: HTMLElement, propertyName:string, valu
 }
 
 export const setAttribute = (element: HTMLElement, name:string, value: string) => {
-  element.setAttribute(name, value);
+  element.setAttribute(name, value)
 }
 

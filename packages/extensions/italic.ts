@@ -1,23 +1,23 @@
-import { Italic as TiptapItalic } from "@tiptap/extension-italic";
+import { Italic as TiptapItalic } from '@tiptap/extension-italic'
 import { CoustomOptions, MenuOptions } from '../types'
 export default class Italic {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     showMenu = true,
     toolTips = '斜体'
   }: CoustomOptions = {}) {
-    const ZeroItalic: any = TiptapItalic.extend();
+    const ZeroItalic: any = TiptapItalic.extend()
 
     const menusOptions: MenuOptions = {
-      showMenu: showMenu,
-      toolTips: toolTips,
+      showMenu,
+      toolTips,
       dataNeType: 'italic',
       src: 'src/assets/images/italic.svg',
-      toggleCommand: function () {
-        this.editor.commands.toggleItalic();
+      toggleCommand() {
+        this.editor.commands.toggleItalic()
       }
     }
-    ZeroItalic.menusOptions = menusOptions;
-    this.extension = ZeroItalic;
+    ZeroItalic.menusOptions = menusOptions
+    this.extension = ZeroItalic
   }
 }

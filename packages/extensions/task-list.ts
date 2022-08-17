@@ -1,8 +1,8 @@
-import{ TaskList as TiptapTaskList }from '@tiptap/extension-task-list'
+import { TaskList as TiptapTaskList } from '@tiptap/extension-task-list'
 import { CoustomOptions, MenuOptions } from '../types'
 
 export default class TaskList {
-  extension: Record<string, any>;
+  extension: Record<string, any>
   constructor({
     showMenu = true,
     toolTips = '任务列表'
@@ -10,19 +10,19 @@ export default class TaskList {
     const ZeroTaskList: Record<string, any> = TiptapTaskList.extend()
     // TODO: 
     const menusOptions: MenuOptions = {
-      showMenu: showMenu,
-      toolTips: toolTips,
+      showMenu,
+      toolTips,
       dataNeType: 'taskList',
       src: 'src/assets/images/task-line.svg',
-      toggleCommand: function () {
+      toggleCommand() {
         // debugger
         this.editor.commands.toggleTaskList({
           lineHeight: 1.5
-        });
+        })
       }
     }
 
-    ZeroTaskList.menusOptions = menusOptions;
+    ZeroTaskList.menusOptions = menusOptions
     this.extension = ZeroTaskList
   }
 }
