@@ -91,11 +91,6 @@ export class ZeroEditor {
    * 创建菜单管理，为其配置方法等
    */
   private createMenuManager() {
-    const a = '7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777'
-      .indexOf('789')
-      .toString()
-    console.log(a)
-
     this.editor.menusOptions.forEach((menusItem: Record<string, any>) => {
       if (menusItem.menusOptions.toggleCommand) {
         menusItem.menusOptions.toggleCommand = menusItem.menusOptions.toggleCommand.bind({
