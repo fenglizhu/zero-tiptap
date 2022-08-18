@@ -2,18 +2,14 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['@typescript-eslint'],
   rules: {
@@ -35,10 +31,7 @@ module.exports = {
     'quote-props': ['error', 'as-needed'], // 当没有严格要求时，禁止对象字面量属性名称使用引号
     'object-shorthand': 2, // 要求对象字面量简写语法
     'no-empty': ['error', { allowEmptyCatch: true }], // 禁止空块语句
-    'no-unused-vars': [
-      'error',
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
-    ], // 禁止未使用过的变量
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }], // 禁止未使用过的变量
     'no-param-reassign': 1, // 禁止对函数参数再赋值
     'no-useless-catch': 1, // 禁止不必要的 catch 子句
     'array-callback-return': 1, // 强制数组方法的回调函数中有 return 语句
@@ -66,8 +59,8 @@ module.exports = {
       {
         anonymous: 'always',
         named: 'never',
-        asyncArrow: 'always',
-      },
+        asyncArrow: 'always'
+      }
     ],
     'prefer-destructuring': [
       // 优先使用数组和对象解构
@@ -75,13 +68,13 @@ module.exports = {
       {
         VariableDeclarator: {
           array: false,
-          object: true,
+          object: true
         },
         AssignmentExpression: {
           array: true,
-          object: false,
-        },
-      },
-    ],
-  },
+          object: false
+        }
+      }
+    ]
+  }
 }

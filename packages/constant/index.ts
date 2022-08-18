@@ -23,4 +23,3 @@ export const MENU_ITME_CLASS_NAME = 'editor-menu-item'
 export const MENU_ITME_SELECTED_CLASS = 'selected'
 
 export const DATA_NE_TYPE = 'data-ne-type'
-
