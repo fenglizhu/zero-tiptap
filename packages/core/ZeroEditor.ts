@@ -143,9 +143,6 @@ export class ZeroEditor {
    *
    */
   public createMenuEle() {
-    const a = '1111111dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
-    console.log(a)
-
     const menuEle: HTMLElement = createElement('div')
     menuEle.id = this.menuElementOption.id
     menuEle.className = this.menuElementOption.class
