@@ -3,10 +3,7 @@ import { CoustomOptions, MenuOptions } from '../types'
 
 export default class CodeBlock {
   extension: Record<string, any>
-  constructor({
-    showMenu = true,
-    toolTips = '代码块'
-  }: CoustomOptions = {}) {
+  constructor({ showMenu = true, toolTips = '代码块' }: CoustomOptions = {}) {
     const ZeroCodeBlock: Record<string, any> = TiptapCodeBlock.extend()
 
     const menusOptions: MenuOptions = {

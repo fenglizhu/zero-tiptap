@@ -4,9 +4,9 @@ import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
 import { MenuOptions, HTMLElementEvent } from '../types'
 
 interface TextAlignOptions extends MenuOptions {
-  types?: string[],
-  alignments?: number[],
-  defaultAlignment?: number,
+  types?: string[]
+  alignments?: number[]
+  defaultAlignment?: number
 }
 
 declare module '@tiptap/core' {
@@ -15,12 +15,12 @@ declare module '@tiptap/core' {
       /**
        * Set the text align attribute
        */
-       // eslint-disable-next-line no-unused-vars
-       setLineHeight: (alignment: string) => ReturnType,
+      // eslint-disable-next-line no-unused-vars
+      setLineHeight: (alignment: string) => ReturnType
       /**
        * Unset the text align attribute
        */
-      unsetLineHeight: () => ReturnType,
+      unsetLineHeight: () => ReturnType
     }
   }
 }
@@ -31,7 +31,7 @@ const LineHeightExtension = Extension.create({
     return {
       types: ['heading', 'paragraph'],
       alignments: [1, 1.15, 1.5, 2.0, 2.5, 3],
-      defaultAlignment: 1.5,
+      defaultAlignment: 1.5
     }
   },
   addGlobalAttributes() {
@@ -47,28 +47,32 @@ const LineHeightExtension = Extension.create({
                 return {}
               }
               return {
-                style: `line-height: ${attributes.lineHeight}`,
+                style: `line-height: ${attributes.lineHeight}`
               }
-            },
-          },
-        },
-      },
+            }
+          }
+        }
+      }
     ]
   },
   addCommands() {
     return {
-      setLineHeight: (alignment: string) => ({ commands }) => {
-        if (!this.options.alignments.includes(alignment)) {
-          return false
-        }
-        return this.options.types.every((type: any) => commands.updateAttributes(type, { lineHeight: alignment }))
-      },
+      setLineHeight:
+        (alignment: string) =>
+          ({ commands }) => {
+            if (!this.options.alignments.includes(alignment)) {
+              return false
+            }
+            return this.options.types.every((type: any) => commands.updateAttributes(type, { lineHeight: alignment }))
+          },
 
-      unsetLineHeight: () => ({ commands }) => {
-        return this.options.types.every((type: any) => commands.resetAttributes(type, 'lineHeight'))
-      },
+      unsetLineHeight:
+        () =>
+          ({ commands }) => {
+            return this.options.types.every((type: any) => commands.resetAttributes(type, 'lineHeight'))
+          }
     }
-  },
+  }
 })
 
 export default class LineHeight {
@@ -111,7 +115,7 @@ export default class LineHeight {
         })
       },
       toggleCommand(pointerEvent: HTMLElementEvent<HTMLElement>) {
-        const element:Element = pointerEvent.target
+        const element: Element = pointerEvent.target
         const attr: string | null = element.getAttribute(MENU_ATTR_NAME)
         const lineHeight = Number(attr)
         this.editor.commands.setLineHeight(lineHeight)

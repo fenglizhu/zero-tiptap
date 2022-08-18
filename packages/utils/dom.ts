@@ -18,11 +18,10 @@ export const setClassName = (element: HTMLElement | Element, className: string) 
   element.className = className
 }
 
-export const setStyleProperty = (element: HTMLElement, propertyName:string, value: string) => {
+export const setStyleProperty = (element: HTMLElement, propertyName: string, value: string) => {
   element.style.setProperty(propertyName, value)
 }
 
-export const setAttribute = (element: HTMLElement, name:string, value: string) => {
+export const setAttribute = (element: HTMLElement, name: string, value: string) => {
   element.setAttribute(name, value)
 }
-

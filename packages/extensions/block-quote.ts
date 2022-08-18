@@ -13,7 +13,7 @@ export default class BlockQuote {
       src: '/src/assets/images/double-quotes-r.svg',
       toggleCommand() {
         this.editor.commands.toggleBlockquote()
-      },
+      }
     }
     ZeroBlockquote.menusOptions = menusOptions
     this.extension = ZeroBlockquote

@@ -4,11 +4,9 @@ import { ReturnHTMLElement } from '../types'
 import { createElement, setAttribute, setClassName, setStyleProperty } from './dom'
 
 // eslint-disable-next-line no-unused-vars
-export const renderElement = ({ type, props = {} }: any, container: { appendChild: (arg0: any) => void; }): void => {
+export const renderElement = ({ type, props = {} }: any, container: { appendChild: (arg0: any) => void }): void => {
   const isTextElement = !type
-  const element = isTextElement
-    ? document.createTextNode('')
-    : document.createElement(type)
+  const element = isTextElement ? document.createTextNode('') : document.createElement(type)
   element.innerText = props.nodeValue
 
   Object.keys(props).forEach(p => {
@@ -23,14 +21,14 @@ export const renderElement = ({ type, props = {} }: any, container: { appendChil
     }
   })
 
-  if (!isTextElement && props.children && props.children.length){
-    props.children.forEach((childElement: { type: any; props?: {} | undefined; }) =>
+  if (!isTextElement && props.children && props.children.length) {
+    props.children.forEach((childElement: { type: any; props?: {} | undefined }) =>
       renderElement(childElement, element)
     )
-  } 
-  
+  }
+
   container.appendChild(element)
-  
+
   return element
 }
 
@@ -38,14 +36,13 @@ const isListener = (p: string) => p.startsWith('on')
 const isSetData = (p: string) => p === 'setData'
 const isAttribute = (p: string) => !isListener(p) && !isSetData(p) && p !== 'children'
 
-export const renderTabElement = (htmlOption: Record<string, any>) : ReturnHTMLElement => {
+export const renderTabElement = (htmlOption: Record<string, any>): ReturnHTMLElement => {
   if (!htmlOption) {
     return ''
   }
   if (htmlOption.type === HTML_TYPE.HTML) {
     return renderHTMLPane(htmlOption)
-  }  
-  else if (htmlOption.type === HTML_TYPE.STYLE) {
+  } else if (htmlOption.type === HTML_TYPE.STYLE) {
     return renderSTYLEPane(htmlOption)
   }
 }
@@ -55,7 +52,6 @@ export const renderHTMLPane = (htmlOption: Record<string, any>): ReturnHTMLEleme
   setClassName(tabPane, TAB_CLASS_NAME)
 
   htmlOption.tagAndText.forEach((item: Record<string, any>) => {
-
     const tabItme: HTMLElement = createElement(item.tag)
 
     setClassName(tabItme, TAB_ITEM_CLASS_NAME)
@@ -84,4 +80,3 @@ export const renderSTYLEPane = (htmlOption: Record<string, any>): ReturnHTMLElem
 
   return tabPane
 }
-

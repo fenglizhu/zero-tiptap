@@ -3,12 +3,9 @@ import { CoustomOptions, MenuOptions } from '../types'
 
 export default class TaskList {
   extension: Record<string, any>
-  constructor({
-    showMenu = true,
-    toolTips = '任务列表'
-  }: CoustomOptions = {}) {
+  constructor({ showMenu = true, toolTips = '任务列表' }: CoustomOptions = {}) {
     const ZeroTaskList: Record<string, any> = TiptapTaskList.extend()
-    // TODO: 
+    // TODO:
     const menusOptions: MenuOptions = {
       showMenu,
       toolTips,

@@ -1,4 +1,3 @@
-
 import { Extension, Editor } from '@tiptap/core'
 import { MenuButton } from './menu-button'
 import { removeTabClass } from './tab-operation'
@@ -8,7 +7,7 @@ export default class MenusBar {
   dropdownShow: boolean
   menuElement: Element
   menuElementMap: Record<string, any>
-  constructor(menus:Extension, editor:Editor, menuElement: Element) {
+  constructor(menus: Extension, editor: Editor, menuElement: Element) {
     this.dropdownShow = false
     this.menuElement = menuElement
     this.menuElementMap = {}
@@ -32,7 +31,6 @@ export default class MenusBar {
     for (const key in this.menuElementMap) {
       this.menuElementMap[key].setActiveMenus(zeroEditor)
     }
-    
   }
 
   /**

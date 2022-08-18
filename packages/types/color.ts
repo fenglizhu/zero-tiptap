@@ -32,5 +32,5 @@ export const Colors: string[] = [
   '#EFE1FA',
   '#FAE1EB',
 
-  '#FFA39E',
+  '#FFA39E'
 ]

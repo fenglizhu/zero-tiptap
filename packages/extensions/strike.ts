@@ -3,10 +3,7 @@ import { CoustomOptions, MenuOptions } from '../types'
 
 export default class Strike {
   extension: Record<string, any>
-  constructor({
-    showMenu = true,
-    toolTips = '删除'
-  }: CoustomOptions = {}) {
+  constructor({ showMenu = true, toolTips = '删除' }: CoustomOptions = {}) {
     const ZeroStrike: any = TiptapStrike.extend()
     const menusOptions: MenuOptions = {
       showMenu,

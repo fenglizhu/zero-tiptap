@@ -12,7 +12,7 @@ export default class Bold {
       src: '/src/assets/images/bold.svg',
       toggleCommand() {
         this.editor.commands.toggleBold()
-      },
+      }
     }
     ZeroBold.menusOptions = menusOptions
     this.extension = ZeroBold

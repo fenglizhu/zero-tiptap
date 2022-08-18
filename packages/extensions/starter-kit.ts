@@ -4,7 +4,7 @@ import { MenuOptions } from '../types'
 export default class StarterKit {
   extension: Record<string, any>
   constructor() {
-    const ZeroStarterKit:any = TiptapStarterKit
+    const ZeroStarterKit: any = TiptapStarterKit
     const menusOptions: MenuOptions = {
       showMenu: false
     }

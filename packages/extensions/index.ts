@@ -1,4 +1,3 @@
-
 export { default as StarterKit } from './starter-kit'
 export { default as Bold } from './bold'
 export { default as Highlight } from './highlight'
@@ -16,4 +15,3 @@ export { default as BulletList } from './bullet-list'
 export { default as TaskList } from './task-list'
 export { default as TaskItem } from './task-item'
 export { default as LineHeight } from './line-height'
-

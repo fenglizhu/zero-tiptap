@@ -3,11 +3,8 @@ import { CoustomOptions, MenuOptions } from '../types'
 
 export default class OrderedList {
   extension: Record<string, any>
-  constructor({
-    showMenu = true,
-    toolTips = '数字列表'
-  }: CoustomOptions = {}) {
-    const ZeroOrderedList:any = TiptapOrderedList.extend()
+  constructor({ showMenu = true, toolTips = '数字列表' }: CoustomOptions = {}) {
+    const ZeroOrderedList: any = TiptapOrderedList.extend()
 
     const menusOptions: MenuOptions = {
       showMenu,

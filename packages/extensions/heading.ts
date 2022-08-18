@@ -9,13 +9,9 @@ interface HeadingOption extends CoustomOptions {
 
 export default class Heading {
   extension: Record<string, any>
-  constructor({
-    showMenu = true,
-    toolTips = '标题',
-    levels = [1, 2, 3, 4, 5, 6]
-  }: HeadingOption = {}) {
+  constructor({ showMenu = true, toolTips = '标题', levels = [1, 2, 3, 4, 5, 6] }: HeadingOption = {}) {
     const ZeroHeading: Record<string, any> = TiptapHeading.extend()
-    
+
     const menusOptions: MenuOptions = {
       showMenu,
       toolTips,
@@ -39,7 +35,7 @@ export default class Heading {
           return {
             tag,
             text: `标题${item}`,
-            dataAttr: item,
+            dataAttr: item
           }
         })
       },

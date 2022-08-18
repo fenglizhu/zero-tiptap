@@ -3,9 +3,9 @@ import { TextAlign as TiptapTextAlign } from '@tiptap/extension-text-align'
 import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
 
 interface TextAlignOptions extends MenuOptions {
-  types?: string[],
-  alignments?: string[],
-  defaultAlignment?: string,
+  types?: string[]
+  alignments?: string[]
+  defaultAlignment?: string
 }
 
 const alignmentsMap = new Map([
@@ -49,7 +49,7 @@ export default class TextAlign {
           return {
             tag: 'div',
             text: alignmentsMap.get(item),
-            dataAttr: item,
+            dataAttr: item
           }
         })
       },

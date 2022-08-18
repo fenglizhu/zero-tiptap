@@ -9,11 +9,7 @@
     "lint": "npx eslint --fix --ext .js,.ts packages",
     "prepare": "husky install"
   },
-  "keywords": [
-    "tiptap",
-    "editor",
-    "richText"
-  ],
+  "keywords": ["tiptap", "editor", "richText"],
   "author": "fenglizhu",
   "license": "ISC",
   "dependencies": {
