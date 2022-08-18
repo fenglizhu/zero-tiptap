@@ -143,9 +143,7 @@ export class ZeroEditor {
    *
    */
   public createMenuEle() {
-    const a = '1111111dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'.includes(
-      '456666666666666666666'
-    )
+    const a = '1111111dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
     console.log(a)
 
     const menuEle: HTMLElement = createElement('div')
