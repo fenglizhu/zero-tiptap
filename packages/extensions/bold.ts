@@ -3,10 +3,7 @@ import { CoustomOptions, MenuOptions } from '../types'
 
 export default class Bold {
   extension?: Record<string, any>
-  constructor({
-    showMenu = true, 
-    toolTips = '加粗'
-  }: CoustomOptions = {}) {
+  constructor({ showMenu = true, toolTips = '加粗' }: CoustomOptions = {}) {
     const ZeroBold: Record<string, any> = TiptapBold.extend()
     const menusOptions: MenuOptions = {
       showMenu,
@@ -15,7 +12,7 @@ export default class Bold {
       src: '/src/assets/images/bold.svg',
       toggleCommand() {
         this.editor.commands.toggleBold()
-      }
+      },
     }
     ZeroBold.menusOptions = menusOptions
     this.extension = ZeroBold

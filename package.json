@@ -1,15 +1,19 @@
 {
-  "name": "ts-tiptap",
-  "version": "1.0.0",
-  "description": "",
+  "name": "zero-tiptap",
+  "version": "1.0.0-alpha.1",
+  "description": "A rich text about tiptap",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c && npm run lint && npm run tsc",
     "tsc": "tsc",
-    "lint": "npx eslint --fix --ext .js,.ts,.jsx packages",
+    "lint": "npx eslint --fix --ext .js,.ts packages",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "tiptap",
+    "editor",
+    "richText"
+  ],
   "author": "fenglizhu",
   "license": "ISC",
   "dependencies": {
@@ -43,7 +47,11 @@
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4"
