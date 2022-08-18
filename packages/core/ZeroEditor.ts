@@ -28,11 +28,11 @@ export class ZeroEditor {
     onTransaction: () => null,
     onFocus: () => null,
     onBlur: () => null,
-    onDestroy: () => null,
+    onDestroy: () => null
   }
-  menuElementOption!: { id: string; class: string; }
-  containerElementOption!: { class: string; }
-  elementParentOption!: { class: string; }
+  menuElementOption!: { id: string; class: string }
+  containerElementOption!: { class: string }
+  elementParentOption!: { class: string }
   menuElement!: Element
   selectionTimer: ReturnType<typeof setTimeout> | null
 
@@ -42,7 +42,7 @@ export class ZeroEditor {
     this.setElementOption()
 
     const editor = new Editor({
-      ...this.options as any,
+      ...(this.options as any),
       onSelectionUpdate: () => {
         if (this.selectionTimer) {
           clearTimeout(this.selectionTimer)
@@ -76,7 +76,7 @@ export class ZeroEditor {
 
   /**
    * 设置配置参数
-   * @param options 
+   * @param options
    */
   public setOptions(options: Partial<EditorOptions> = {}) {
     const extensions = options.extensions || []
@@ -116,11 +116,10 @@ export class ZeroEditor {
       this.options.element.classList.add(this.containerElementOption.class)
 
       const patentEle = this.createEditorParentElement()
-      
+
       this.menuElement = this.createMenuEle()
 
       patentEle.append(this.menuElement, this.options.element)
-
     } else {
       throw new Error('Editor container must be set an element')
     }
@@ -132,18 +131,23 @@ export class ZeroEditor {
   public createEditorParentElement() {
     const patentEle: HTMLElement = createElement('div')
     patentEle.className = this.elementParentOption.class
-    
+
     const parent: HTMLElement = this.options.element?.parentElement as HTMLElement
-    
+
     parent.replaceChild(patentEle, this.options.element as HTMLElement)
 
     return patentEle
   }
 
   /**
-   * 
+   *
    */
   public createMenuEle() {
+    const a = '1111111dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'.includes(
+      '456666666666666666666'
+    )
+    console.log(a)
+
     const menuEle: HTMLElement = createElement('div')
     menuEle.id = this.menuElementOption.id
     menuEle.className = this.menuElementOption.class
