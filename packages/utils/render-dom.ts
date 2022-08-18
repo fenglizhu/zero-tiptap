@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import { HTML_TYPE, MENU_ATTR_NAME, TAB_CLASS_NAME, TAB_ITEM_CLASS_NAME } from '../constant'
 import { ReturnHTMLElement } from '../types'
 import { createElement, setAttribute, setClassName, setStyleProperty } from './dom'
@@ -22,7 +21,7 @@ export const renderElement = ({ type, props = {} }: any, container: { appendChil
   })
 
   if (!isTextElement && props.children && props.children.length) {
-    props.children.forEach((childElement: { type: any; props?: {} | undefined }) =>
+    props.children.forEach((childElement: { type: any; props?: object | undefined }) =>
       renderElement(childElement, element)
     )
   }

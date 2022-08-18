@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable no-unused-vars */
 export interface CoustomOptions {
   showMenu?: boolean
   toolTips?: string
@@ -13,13 +12,13 @@ export interface MenuOptions {
   toolTips?: string
   hasTab?: boolean
   dataNeType?: string
-  toggleCommand?: Function
+  toggleCommand?: (point: HTMLElementEvent<HTMLElement>) => void
   dropdown?: SN[]
   menuType?: string
   activeIsObject?: boolean
   src?: string
   htmlOption?: object
-  setActiveRules?: Function
+  setActiveRules?: (color: any) => any
 }
 
 export type HTMLElementEvent<T extends HTMLElement> = Event & {

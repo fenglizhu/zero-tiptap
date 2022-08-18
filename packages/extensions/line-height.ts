@@ -1,5 +1,4 @@
 import { Extension } from '@tiptap/core'
-// import { NodeType, MarkType } from 'prosemirror-model'
 import { HTML_TYPE, MENU_ATTR_NAME } from '../constant'
 import { MenuOptions, HTMLElementEvent } from '../types'
 
